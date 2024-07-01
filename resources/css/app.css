@@ -1,0 +1,8 @@
+/* Importing Bootstrap CSS */
+@import url('../theme/css/bootstrap.min.css');
+/* Importing Swiper Slider CSS */
+@import url('../theme/css/swiper.css');
+/* Importing Fontawesome CSS */
+@import url('../theme/fontawesome/css/all.min.css');
+/* Importing Style CSS */
+@import url('../theme/css/style.css');
