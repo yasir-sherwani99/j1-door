@@ -52,65 +52,71 @@
                                 />
                             </label>
                         </div><!--end form-group-->
-                        <div class="form-group mb-3">
-                            <label for="name" class="text-muted"><small>Name</small></label>
-                            <input 
-                                type="text" 
-                                class="form-control" 
-                                id="name" 
-                                name="name"
-                                value="{{ $admin->name }}"
-                                aria-describedby="name" 
-                                placeholder="Enter full name" 
-                                required
-                            />
-                            <div class="invalid-feedback">
-                                Name is a required field.
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="name" class="form-label fw-bold"><small>Name</small></label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="name" 
+                                    name="name"
+                                    value="{{ $admin->name }}"
+                                    aria-describedby="name" 
+                                    placeholder="Enter full name" 
+                                    required
+                                />
+                                <div class="invalid-feedback">
+                                    Name is a required field.
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group mb-3">
-                            <label for="email" class="text-muted"><small>Email</small></label>
-                            <input 
-                                type="text" 
-                                class="form-control" 
-                                id="email" 
-                                name="email"
-                                value="{{ $admin->email }}"
-                                aria-describedby="email" 
-                                placeholder="Enter email address" 
-                                required
-                                disabled
-                            />
-                            <div class="invalid-feedback">
-                                Email is a required field.
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="email" class="form-label fw-bold"><small>Email</small></label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="email" 
+                                    name="email"
+                                    value="{{ $admin->email }}"
+                                    aria-describedby="email" 
+                                    placeholder="Enter email address" 
+                                    required
+                                    disabled
+                                />
+                                <div class="invalid-feedback">
+                                    Email is a required field.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label fw-bold"><small>Phone</small></label>
+                                <input 
+                                    type="tel" 
+                                    class="form-control" 
+                                    id="phone" 
+                                    name="phone"
+                                    value="{{ $admin->phone }}"
+                                    aria-describedby="phone" 
+                                    placeholder="Enter phone number" 
+                                />
                             </div>
                         </div>
-                        <div class="form-group mb-3">
-                            <label for="phone" class="text-muted"><small>Phone</small></label>
-                            <input 
-                                type="tel" 
-                                class="form-control" 
-                                id="phone" 
-                                name="phone"
-                                value="{{ $admin->phone }}"
-                                aria-describedby="phone" 
-                                placeholder="Enter phone number" 
-                            />
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="address" class="form-label fw-bold"><small>Address</small></label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="address" 
+                                    name="address"
+                                    value="{{ $admin->address }}"
+                                    aria-describedby="address" 
+                                    placeholder="Enter address" 
+                                />
+                                <small class="text-muted">Full address including city</small>
+                            </div>
                         </div>
-                        <div class="form-group mb-3">
-                            <label for="address" class="text-muted"><small>Address</small></label>
-                            <input 
-                                type="text" 
-                                class="form-control" 
-                                id="address" 
-                                name="address"
-                                value="{{ $admin->address }}"
-                                aria-describedby="address" 
-                                placeholder="Enter address" 
-                            />
-                            <small class="text-muted">Full address including city</small>
-                        </div>
-                        <button type="submit" class="btn btn-de-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </form>                                           
                 </div><!--end card-body-->
             </div><!--end card-->

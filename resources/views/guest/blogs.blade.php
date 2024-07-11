@@ -1,3 +1,9 @@
+<?php
+	$fullUrl = rawurldecode(url(request()->getRequestUri()));
+	$tmpExplode = explode('?', $fullUrl);
+	$fullUrlNoParams = current($tmpExplode); 
+?>
+
 @extends('layouts.guest')
 
 @section('content')
@@ -8,236 +14,76 @@
     <section class="need-sec">
         <div class="container container-small">
             @include('guest.inc.breadcrumbs', ['section' => 'Blogs'])
-            @include('guest.inc.filter_blog')
+            @include('guest.inc.filter_blog', ['blogs' => $blogs, 'tags' => $tags, 'selectedTag' => $selectedTag])
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="blogscard position-relative">
-                        <img src="{{ asset('images/blogs/blog-card.png') }}" alt="" />
-                        <div class="text-blog">
-                            <h5 class="font-20 font-weight-sbold mb-2">
-                                Garage Door Replacement Returns to Top Spot on Cost Versus Value Report
-                            </h5>
-                            <p class="font-16 font-weight-medium mb-4 textgry">
-                                A garage door replacement receives an unprecedented 194% average return on
-                                investment nationally, according to Remodeling Magazine’s 2024 Cost vs. Value
-                                Report
-                            </p>
-
-                            <h6 class="font-14 font-weight-sbold position-absolute">Case Study</h6>
+                @if(count($blogs) > 0)
+                    @foreach($blogs as $blog)
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="blogscard position-relative">
+                                <img 
+                                    src="{{ asset($blog->images[0]->src) }}" 
+                                    alt="{{ $blog->title }}" 
+                                    class="w-100"
+                                    style="height: 250px;"
+                                    onerror="this.onerror=null;this.src='{{ asset('admin-assets/images/default/default-product.jpg') }}';" 
+                                />
+                                <div class="text-blog">
+                                    <h5 class="font-20 font-weight-sbold text-dark mb-2">
+                                        {{ \Str::limit($blog->title, 50) }}
+                                    </h5>
+                                    <p class="font-16 font-weight-medium mb-4 textgry">
+                                        {!! \Str::limit($blog->content, 175) !!}
+                                    </p>
+                                    @if(count($blog->tag) > 0)
+                                        @foreach($blog->tag as $key => $tag)
+                                            @if($key == 0)
+                                                <h6 class="font-14 font-weight-sbold position-absolute text-dark">{{ $tag->name }}</h6>
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                </div>
+                            </div>
                         </div>
+                    @endforeach
+                @else
+                    <div class="col-lg-12 col-md-12">
+                        <p class="font-18 text-center text-danger">No blog found!</p>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="blogscard position-relative">
-                        <img src="{{ asset('images/blogs/blogcard-2.png') }}" alt="" />
-                        <div class="text-blog">
-                            <h5 class="font-20 font-weight-sbold mb-2">
-                                Garage Door Replacement: Over 102% Return on Investment
-                            </h5>
-                            <p class="font-16 font-weight-medium mb-4 textgry">
-                                Garage door replacements received a 100% ROI rating for home improvement
-                                projects. Learn how a new garage door could boost your homes ROI!
-                            </p>
-
-                            <h6 class="font-14 font-weight-sbold position-absolute">Garage Door Tips</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="blogscard position-relative">
-                        <img src="{{ asset('images/blogs/blogcard-3.png') }}" alt="" />
-                        <div class="text-blog">
-                            <h5 class="font-20 font-weight-sbold mb-2">
-                                ​Chip & Pauli Wade Create Mountaintop Retreat
-                            </h5>
-                            <p class="font-16 font-weight-medium mb-4 textgry">
-                                HGTV & DIY Network Hosts partner with Overhead Door™ brand to create their
-                                stunning Mountaintop Retreat!
-                            </p>
-
-                            <h6 class="font-14 font-weight-sbold position-absolute">Featured In</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="blogscard position-relative">
-                        <img src="{{ asset('images/blogs/blogcard-4.png') }}" alt="" />
-                        <div class="text-blog">
-                            <h5 class="font-20 font-weight-sbold mb-2">
-                                Garage Door Replacement Returns to Top Spot on Cost Versus Value Report
-                            </h5>
-                            <p class="font-16 font-weight-medium mb-4 textgry">
-                                A garage door replacement receives an unprecedented 194% average return on
-                                investment nationally, according to Remodeling Magazine’s 2024 Cost vs. Value
-                                Report
-                            </p>
-
-                            <h6 class="font-14 font-weight-sbold position-absolute">Case Study</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="blogscard position-relative">
-                        <img src="{{ asset('images/blogs/blogcard-5.png') }}" alt="" />
-                        <div class="text-blog">
-                            <h5 class="font-20 font-weight-sbold mb-2">
-                                Garage Door Replacement: Over 102% Return on Investment
-                            </h5>
-                            <p class="font-16 font-weight-medium mb-4 textgry">
-                                Garage door replacements received a 100% ROI rating for home improvement
-                                projects. Learn how a new garage door could boost your homes ROI!
-                            </p>
-
-                            <h6 class="font-14 font-weight-sbold position-absolute">Garage Door Tips</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="blogscard position-relative">
-                        <img src="{{ asset('images/blogs/blogcard-6.png') }}" alt="" />
-                        <div class="text-blog">
-                            <h5 class="font-20 font-weight-sbold mb-2">
-                                ​Chip & Pauli Wade Create Mountaintop Retreat
-                            </h5>
-                            <p class="font-16 font-weight-medium mb-4 textgry">
-                                HGTV & DIY Network Hosts partner with Overhead Door™ brand to create their
-                                stunning Mountaintop Retreat!
-                            </p>
-
-                            <h6 class="font-14 font-weight-sbold position-absolute">Featured In</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="blogscard position-relative">
-                        <img src="{{ asset('images/blogs/blogcard-7.png') }}" alt="" />
-                        <div class="text-blog">
-                            <h5 class="font-20 font-weight-sbold mb-2">
-                                Garage Door Replacement Returns to Top Spot on Cost Versus Value Report
-                            </h5>
-                            <p class="font-16 font-weight-medium mb-4 textgry">
-                                A garage door replacement receives an unprecedented 194% average return on
-                                investment nationally, according to Remodeling Magazine’s 2024 Cost vs. Value
-                                Report
-                            </p>
-
-                            <h6 class="font-14 font-weight-sbold position-absolute">Case Study</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="blogscard position-relative">
-                        <img src="{{ asset('images/blogs/blogcard-8.png') }}" alt="" />
-                        <div class="text-blog">
-                            <h5 class="font-20 font-weight-sbold mb-2">
-                                Garage Door Replacement: Over 102% Return on Investment
-                            </h5>
-                            <p class="font-16 font-weight-medium mb-4 textgry">
-                                Garage door replacements received a 100% ROI rating for home improvement
-                                projects. Learn how a new garage door could boost your homes ROI!
-                            </p>
-
-                            <h6 class="font-14 font-weight-sbold position-absolute">Garage Door Tips</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="blogscard position-relative">
-                        <img src="{{ asset('images/blogs/blogcard-9.png') }}" alt="" />
-                        <div class="text-blog">
-                            <h5 class="font-20 font-weight-sbold mb-2">
-                                ​Chip & Pauli Wade Create Mountaintop Retreat
-                            </h5>
-                            <p class="font-16 font-weight-medium mb-4 textgry">
-                                HGTV & DIY Network Hosts partner with Overhead Door™ brand to create their
-                                stunning Mountaintop Retreat!
-                            </p>
-
-                            <h6 class="font-14 font-weight-sbold position-absolute">Featured In</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="blogscard position-relative">
-                        <img src="{{ asset('images/blogs/blogcard-10.png') }}" alt="" />
-                        <div class="text-blog">
-                            <h5 class="font-20 font-weight-sbold mb-2">
-                                Garage Door Replacement Returns to Top Spot on Cost Versus Value Report
-                            </h5>
-                            <p class="font-16 font-weight-medium mb-4 textgry">
-                                A garage door replacement receives an unprecedented 194% average return on
-                                investment nationally, according to Remodeling Magazine’s 2024 Cost vs. Value
-                                Report
-                            </p>
-
-                            <h6 class="font-14 font-weight-sbold position-absolute">Case Study</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="blogscard position-relative">
-                        <img src="{{ asset('images/blogs/blogcard-11.png') }}" alt="" />
-                        <div class="text-blog">
-                            <h5 class="font-20 font-weight-sbold mb-2">
-                                Garage Door Replacement: Over 102% Return on Investment
-                            </h5>
-                            <p class="font-16 font-weight-medium mb-4 textgry">
-                                Garage door replacements received a 100% ROI rating for home improvement
-                                projects. Learn how a new garage door could boost your homes ROI!
-                            </p>
-
-                            <h6 class="font-14 font-weight-sbold position-absolute">Garage Door Tips</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="blogscard position-relative">
-                        <img src="{{ asset('images/blogs/blogcard-12.png') }}" alt="" />
-                        <div class="text-blog">
-                            <h5 class="font-20 font-weight-sbold mb-2">
-                                ​Chip & Pauli Wade Create Mountaintop Retreat
-                            </h5>
-                            <p class="font-16 font-weight-medium mb-4 textgry">
-                                HGTV & DIY Network Hosts partner with Overhead Door™ brand to create their
-                                stunning Mountaintop Retreat!
-                            </p>
-
-                            <h6 class="font-14 font-weight-sbold position-absolute">Featured In</h6>
-                        </div>
-                    </div>
+                @endif
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-12">
+                    {{ $blogs->withQueryString()->links('vendor.pagination.custom') }} 
                 </div>
             </div>
-            <nav class="mt-5" aria-label="Page navigation example">
-                <ul class="pagination custom-pagination">
-                    <li class="page-item previous">
-                        <a class="page-link p-0 border-0" href="#" aria-label="Previous">
-                            <img src="{{ asset('images/svg/back.svg') }}" alt="" />
-                        </a>
-                    </li>
-                    <div class="page-items-container">
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                        <li class="page-item"><a class="page-link" href="#">7</a></li>
-                        <li class="page-item"><a class="page-link" href="#">8</a></li>
-                        <li class="page-item"><a class="page-link" href="#">9</a></li>
-                        <li class="page-item"><a class="page-link" href="#">10</a></li>
-                    </div>
-                    <li class="page-item next">
-                        <a class="page-link p-0 border-0" href="#" aria-label="Next">
-                            <img src="{{ asset('images/svg/next.svg') }}" alt="" />
-                        </a>
-                    </li>
-                </ul>
-            </nav>
         </div>
     </section>
 
-    @include('guest.inc.testimonial')
+    @if(count($testimonials) > 0)
+        @include('guest.inc.testimonial')
+    @endif
 
+@endsection
+
+@section('script')
+    <script src="{{ asset('admin-assets/js/jquery.min.js') }}"></script>
+    <script>
+
+        let fullUrlNoParams = "{{ $fullUrlNoParams }}";
+        
+        $(function () {
+            $('#blog_filter').on("change", function () {
+        
+                let tag = $("#blog_filter").val();
+
+                if(tag) {
+                    let url = "";
+                    url = fullUrlNoParams + '?tag=' + tag;
+                    location.href = url;
+                }
+             
+                return false;
+            });
+        });
+    </script>
 @endsection

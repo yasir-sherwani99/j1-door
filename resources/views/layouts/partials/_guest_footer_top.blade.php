@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="footer-logo">
-                    <a href="#" class="d-block mb-5">
-                        <img src="{{ asset('images/logos/logo-black.svg') }}" alt="" />
+                    <a href="{{ url('/') }}" class="d-block mb-5">
+                        <img src="{{ asset('images/logos/logo-black.svg') }}" alt="J1 Door Company" />
                     </a>
                     <div class="addres-footer mb-4">
                         <h5 class="font-16 font-weight-sbold mb-2">Address</h5>
@@ -26,13 +26,13 @@
 
                     <ul>
                         <li>
-                            <a href="#" class="font-14 text-dark mb-3 d-block">All Residential Garage Doors</a>
+                            <a href="{{ url('search-product/residential?cat=1') }}" class="font-14 text-dark mb-3 d-block">All Residential Garage Doors</a>
                         </li>
                         <li>
                             <a href="#" class="font-14 text-dark mb-3 d-block">DoorView - Design Your Door</a>
                         </li>
                         <li>
-                            <a href="#" class="font-14 text-dark mb-3 d-block">Repair My Garage Door</a>
+                            <a href="{{ route('guest.repair.index') }}" class="font-14 text-dark mb-3 d-block">Repair My Garage Door</a>
                         </li>
                         <li>
                             <a href="#" class="font-14 text-dark mb-3 d-block">Smart Home Hub</a>
@@ -44,7 +44,7 @@
 
                     <ul>
                         <li>
-                            <a href="#" class="font-14 text-dark mb-3 d-block">Commercial</a>
+                            <a href="{{ route('guest.product.search', 'commercial') }}" class="font-14 text-dark mb-3 d-block">Commercial</a>
                         </li>
                         <li>
                             <a href="#" class="font-14 text-dark mb-3 d-block">Architects</a>
@@ -64,10 +64,10 @@
                             <a href="#" class="font-14 text-dark mb-3 d-block">About Us</a>
                         </li>
                         <li>
-                            <a href="#" class="font-14 text-dark mb-3 d-block">Blogs</a>
+                            <a href="{{ route('guest.blogs.index') }}" class="font-14 text-dark mb-3 d-block">Blogs</a>
                         </li>
                         <li>
-                            <a href="#" class="font-14 text-dark mb-3 d-block">News</a>
+                            <a href="{{ route('guest.privacy.index') }}" class="font-14 text-dark mb-3 d-block">Privacy Policy</a>
                         </li>
                         <li><a href="#" class="font-14 text-dark mb-3 d-block">Contact Us</a></li>
                         <li><a href="#" class="font-14 text-dark mb-3 d-block">FAQs</a></li>

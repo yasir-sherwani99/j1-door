@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
+            $table->string('sub_title')->nullable();
             $table->text('content');
             $table->boolean('is_active')->default(1);
             $table->timestamps();

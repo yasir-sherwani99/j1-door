@@ -1,5 +1,9 @@
 @extends('layouts.guest')
 
+@section('style')
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+@endsection
+
 @section('content')
 
     @include('guest.inc.banner_main', ['title' => 'Garage Door Repair', 'new_class' => 'repair-sec-banner'])

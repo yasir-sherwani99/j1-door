@@ -7,7 +7,7 @@
                 more doors.
             </p>
             <div class="bg-white form-outer-get">
-                <form method="POST" class="needs-validation" action="#" enctype="multipart/form-data" novalidate>
+                <form method="POST" class="needs-validation" action="{{ route('guest.distributor.search') }}" enctype="multipart/form-data" novalidate>
                     @csrf
                     <div class="mb-2">
                         <select class="form-select" name="region" aria-label="Select Region" required>
@@ -20,13 +20,13 @@
                         </div>
                     </div>
                     <div class="mb-2">
-                        <input type="text" class="form-control" name="location" placeholder="Enter Address,City or Zip" required />
+                        <input type="text" class="form-control" name="address" placeholder="Enter Address,City or Zip" required />
                         <div class="invalid-feedback" style="text-align: left !important;">
-                            <small>Location is a required field.</small>
+                            <small>Address is a required field.</small>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-solid w-100 big-btn">
-                        <img class="me-2" src="images/search.svg" alt="" /> Search
+                        <img class="me-2" src="{{ asset('images/svg/search.svg') }}" alt="J1 Door" /> Search
                     </button>
                 </form>
             </div>

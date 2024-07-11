@@ -23,8 +23,10 @@ class BlogStoreRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:191',
+            'sub_title' => 'nullable|string|max:191',
             'tags' => 'required|array|min:1',
-            'content' => 'required|string'
+            'content' => 'required|string',
+         //   'images' => 'required|array|min:1'
         ];
     }
 }

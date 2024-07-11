@@ -46,7 +46,8 @@ class ProductDocumentController extends Controller
             'Content-Type: application/pdf',
         );
 
-        $filePath = public_path() . '/' . $doc->src;
+        // $filePath = public_path() . '/' . $doc->src;
+        $filePath = $doc->src;
         $fileName = explode('/', $doc->src);
 
         return response()->download($filePath, $fileName[1], $headers);
@@ -69,7 +70,7 @@ class ProductDocumentController extends Controller
                 $extension = $doc->getClientOriginalExtension();
                 // create doc new name        
                 $docName = 'document_' . time() . '_' . $num . '.' . $extension;
-                $doc->move(public_path('documents'), $docName);
+                $doc->move('documents', $docName);
 
                 $prodDoc = new ProductDocument;
 
@@ -100,7 +101,7 @@ class ProductDocumentController extends Controller
         }
 
         if(isset($doc->src)) {
-            if (File::exists(public_path($doc->src))) {
+            if (File::exists($doc->src)) {
                 // delete image from storage
                 File::delete($doc->src);
             } 

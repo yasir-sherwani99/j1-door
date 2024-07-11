@@ -19,6 +19,7 @@ class Blog extends Model
     protected $fillable = [
         'title',
         'slug',
+        'sub_title',
         'content',
         'is_active'
     ];
@@ -52,5 +53,25 @@ class Blog extends Model
     public function tag()
     {
         return $this->belongsToMany(Tag::class, 'blog_tags');
+    }
+
+    public function images()
+    {
+        return $this->hasMany(BlogImage::class, 'blog_id');
+    }
+
+    /*
+    |---------------------------------------------------------------
+    | Scopes
+    |---------------------------------------------------------------
+    */
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', 1);
+    }
+
+    public function scopeSort($query, $value)
+    {
+        return $query->orderBy('created_at', $value);
     }
 }

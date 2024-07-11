@@ -22,7 +22,7 @@
                 <div class="card-body">    
                     @if(count($blogs) > 0)
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-bordered">
                                 <thead class="thead-light">
                                     <tr>
                                         <th>Title</th>
@@ -73,6 +73,16 @@
                     @else
                         <p>No blog found!</p>
                     @endif
+                    <div class="row">
+                        <div class="col">
+                            <a href="{{ route('blogs.create') }}">
+                                <button class="btn btn-outline-light btn-sm px-4 ">+ Add New</button>
+                            </a>
+                        </div><!--end col-->      
+                        <div class="col-auto">
+                            {{ $blogs->links() }}
+                        </div> <!--end col-->                               
+                    </div><!--end row-->
                 </div><!--end card-body-->
             </div><!--end card-->
         </div> <!-- end col -->

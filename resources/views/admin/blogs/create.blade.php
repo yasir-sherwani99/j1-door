@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('style')
-    <!-- <link href="{{ asset('admin-assets/plugins/image-uploader/src/image-uploader.css') }}" rel="stylesheet" type="text/css" /> -->
+    <link href="{{ asset('admin-assets/plugins/image-uploader/src/image-uploader.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -44,6 +44,20 @@
                             </div>
                         </div>
                         <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="sub_title" class="form-label fw-bold">Subtitle</label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="sub_title" 
+                                    name="sub_title"
+                                    placeholder="Enter blog sub title"
+                                    required
+                                    value="{{ old('sub_title') }}"
+                                />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <div class="col-md-12">                                
                                 <label for="tags" class="form-label fw-bold">Tags <span class="text-danger">*</span></label>                                            
                                 <select 
@@ -79,17 +93,6 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- <div class="row mb-3">
-                            <div class="col-md-12">
-                                <label for="images" class="form-label fw-bold">Images <span class="text-danger">*</span></label>
-                                <div class="input-images-1"></div>
-                                <small class="form-text text-muted">Max 5 images allowed, each image should not exceed 2MB</small>
-                                <div class="invalid-feedback">
-                                    Product images is a required field.
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="row mb-3">
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -98,6 +101,16 @@
                                         <label class="form-check-label fw-bold" for="activeSwitch">Active</label>
                                     </div>
                                 </div>  
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="images" class="form-label fw-bold">Cover Image <span class="text-danger">*</span></label>
+                                <div class="input-images-1"></div>
+                                <small class="form-text text-muted">Max 1 images allowed, each image should not exceed 2MB</small>
+                                <div class="invalid-feedback">
+                                    Blog images is a required field.
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -126,7 +139,7 @@
                 'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
                 'table emoticons template paste help'
             ],
-            toolbar: 'bold italic | alignleft aligncenter alignright alignjustify | ' +
+            toolbar: 'bold italic | alignleft aligncenter alignright alignjustify | ' + ' | link image media fullpage | ' +
                 'bullist numlist | ' + 'emoticons',
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
         });
@@ -137,16 +150,16 @@
             multiple: true
         });
     </script>
-    <!-- <script src="{{ asset('admin-assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('admin-assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('admin-assets/plugins/image-uploader/src/image-uploader.js') }}"></script>
     <script>
         $(function () {
             $('.input-images-1').imageUploader({
                 imagesInputName: 'images',
-                maxFiles: 5,
+                maxFiles: 1,
                 extensions: ['.jpg', '.jpeg', '.png', '.gif', '.svg'],
                 maxSize: 2 * 1024 * 1024
             });
         });
-    </script> -->
+    </script>
 @endsection

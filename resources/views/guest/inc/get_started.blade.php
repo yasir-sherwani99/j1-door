@@ -15,7 +15,7 @@
                     <div class="d-flex btn-holder">
                         <a href="#" class="btn btn-solid me-3 big-btn"> Request a quote </a>
                         <a href="#" class="btn btn-solid btn-black text-white big-btn"
-                            ><img class="me-3" src="images/phone-white.svg" alt="" /> (347) 256 - 7157
+                            ><img class="me-3" src="{{ asset('images/svg/phone-white.svg') }}" alt="J1 Door" /> (347) 256 - 7157
                         </a>
                     </div>
                 </div>

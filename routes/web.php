@@ -16,17 +16,17 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 Route::get('/', [App\Http\Controllers\PageController::class, 'index']);
-Route::get('residential', [App\Http\Controllers\ProductController::class, 'indexResidentialProducts'])->name('guest.product.residentail');
-Route::get('commercial', [App\Http\Controllers\ProductController::class, 'indexCommercialProducts'])->name('guest.product.commercial');
+Route::get('search-product/{producttype}', [App\Http\Controllers\ProductController::class, 'searchProducts'])->name('guest.product.search');
 Route::get('product/{slug}', [App\Http\Controllers\ProductController::class, 'getProductDetails'])->name('guest.product.details');
 Route::get('product-document/{document}', [App\Http\Controllers\ProductController::class, 'download'])->name('guest.document.download');
 Route::get('quote', [App\Http\Controllers\QuoteController::class, 'index'])->name('guest.quote.index');
 Route::post('quote', [App\Http\Controllers\QuoteController::class, 'store'])->name('guest.quote.store');
 Route::get('services', [App\Http\Controllers\ServiceController::class, 'index'])->name('guest.services.index');
-Route::get('distributor', [App\Http\Controllers\PageController::class, 'indexDistributor']);
-Route::get('repair', [App\Http\Controllers\PageController::class, 'indexRepair']);
-Route::get('blogs', [App\Http\Controllers\PageController::class, 'indexBlogs']);
-Route::get('privacy', [App\Http\Controllers\PageController::class, 'indexPrivacy']);
+Route::get('distributor', [App\Http\Controllers\DistributorController::class, 'index'])->name('guest.distributor.index');
+Route::post('distributor', [App\Http\Controllers\DistributorController::class, 'search'])->name('guest.distributor.search');
+Route::get('blogs', [App\Http\Controllers\BlogController::class, 'index'])->name('guest.blogs.index');
+Route::get('repair', [App\Http\Controllers\PageController::class, 'indexRepair'])->name('guest.repair.index');
+Route::get('privacy', [App\Http\Controllers\PageController::class, 'indexPrivacy'])->name('guest.privacy.index');
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +69,9 @@ Route::group([
         Route::resource('distributors', App\Http\Controllers\Admin\DistributorController::class);
         Route::get('getDistributors', [App\Http\Controllers\Admin\DistributorController::class, 'getDistributors']);
         Route::resource('blogs', App\Http\Controllers\Admin\BlogController::class);
+        Route::resource('metatags', App\Http\Controllers\Admin\MetaTagController::class);
         Route::resource('admins', App\Http\Controllers\Admin\AdminController::class);
+        Route::get('password', [App\Http\Controllers\Admin\SettingsController::class, 'createPassword'])->name('password.create');
+        Route::post('password', [App\Http\Controllers\Admin\SettingsController::class, 'changePassword'])->name('password.change');
     });
 });

@@ -53,10 +53,10 @@
                                     id="category"
                                     required
                                 >
-                                    <option value="{{ $distributor->category }}">{{ ucfirst($distributor->category) }}</option>
+                                    <option value="{{ $distributor->category }}">{{ $distributor->category == "both" ? 'Commercial & Residential' : ucfirst($distributor->category) }}</option>
                                     <option value="commercial">Commercial</option>
                                     <option value="residential">Residential</option>
-                                    <option value="both">Both</option>
+                                    <option value="both">Commercial & Residential</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Category is a required field.

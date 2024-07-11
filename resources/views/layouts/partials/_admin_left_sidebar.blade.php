@@ -193,6 +193,31 @@
                     <li class="menu-label mt-0">S<span>ettings Section</span></li>
                     <li class="nav-item">
                         <a 
+                            class="nav-link {{ request()->routeIs('metatags.index') || request()->routeIs('metatags.edit') ? 'active' : '' }}" 
+                            href="#sidebarMetaTag" 
+                            data-bs-toggle="collapse" 
+                            role="button"
+                            aria-expanded="false" 
+                            aria-controls="sidebarMetaTag"
+                        >
+                            <i class="ti ti-search menu-icon"></i>
+                            <span>Meta Tags</span>
+                        </a>
+                        <div class="collapse {{ request()->routeIs('metatags.index') || request()->routeIs('metatags.edit') ? 'show' : '' }}" id="sidebarMetaTag">
+                            <ul class="nav flex-column">
+                               <li class="nav-item">
+                                    <a 
+                                        class="nav-link {{ request()->routeIs('metatags.index') || request()->routeIs('metatags.edit') ? 'active' : '' }}" 
+                                        href="{{ route('metatags.index') }}"
+                                    >
+                                        Meta Tags List
+                                    </a>
+                                </li><!--end nav-item-->
+                            </ul><!--end nav-->
+                        </div><!--end sidebarPages-->
+                    </li><!--end nav-item-->
+                    <li class="nav-item">
+                        <a 
                             class="nav-link {{ request()->routeIs('admins.create') || request()->routeIs('admins.index') || request()->routeIs('admins.edit') ? 'active' : '' }}" 
                             href="#sidebarAdmins" 
                             data-bs-toggle="collapse" 

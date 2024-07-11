@@ -106,7 +106,7 @@ class ProductController extends Controller
                 // image extension
                 $extension = $image->getClientOriginalExtension();
                 // destination path
-                $destinationPath = public_path('images/upload/products');
+                $destinationPath = 'images/upload/products';
                 // create image new name        
                 $imageName = 'products_' . time() . '_' . $num . '.' . $extension;
                 // create image instanc and save
@@ -177,7 +177,6 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-    //    dd($request->all());
         $request->validate([
             'title' => 'required|string|max:191',
             'sub_title' => 'nullable|string|max:191',
@@ -234,7 +233,7 @@ class ProductController extends Controller
                 // image extension
                 $extension = $image->getClientOriginalExtension();
                 // destination path
-                $destinationPath = public_path('images/upload/products');
+                $destinationPath = 'images/upload/products';
                 // create image new name        
                 $imageName = 'products_' . time() . '_' . $num . '.' . $extension;
                 // create image instanc and save
@@ -275,7 +274,7 @@ class ProductController extends Controller
         if(isset($images) && count($images) > 0) {
             foreach($images as $img) {
                 $image = ProductImage::find($img->id);
-                if (File::exists(public_path($image->src))) {
+                if (File::exists($image->src)) {
                     // delete image from storage
                     File::delete($image->src);
                     // delete image from db

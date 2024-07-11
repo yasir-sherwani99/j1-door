@@ -49,29 +49,29 @@
                             </p>
                             <ul class="p-0 m-0 mb-5 h-auto">
                                 <li class="font-weight-sbold d-flex align-items-center">
-                                    <img class="me-2" src="images/list.svg" alt="" />Spring Repair
+                                    <img class="me-2" src="{{ asset('images/svg/list.svg') }}" alt="J1 Door" />Spring Repair
                                 </li>
                                 <li class="font-weight-sbold d-flex align-items-center">
-                                    <img class="me-2" src="images/list.svg" alt="" />Opener Repair
+                                    <img class="me-2" src="{{ asset('images/svg/list.svg') }}" alt="J1 Door" />Opener Repair
                                 </li>
                                 <li class="font-weight-sbold d-flex align-items-center">
-                                    <img class="me-2" src="images/list.svg" alt="" />Cable Repair
+                                    <img class="me-2" src="{{ asset('images/svg/list.svg') }}" alt="J1 Door" />Cable Repair
                                 </li>
                                 <li class="font-weight-sbold d-flex align-items-center">
-                                    <img class="me-2" src="images/list.svg" alt="" />Roller Replacement
+                                    <img class="me-2" src="{{ asset('images/svg/list.svg') }}" alt="J1 Door" />Roller Replacement
                                 </li>
                                 <li class="font-weight-sbold d-flex align-items-center">
-                                    <img class="me-2" src="images/list.svg" alt="" />Track Repair
+                                    <img class="me-2" src="{{ asset('images/svg/list.svg') }}" alt="J1 Door" />Track Repair
                                 </li>
                                 <li class="font-weight-sbold d-flex align-items-center">
-                                    <img class="me-2" src="images/list.svg" alt="" />Replacement Sections
+                                    <img class="me-2" src="{{ asset('images/svg/list.svg') }}" alt="J1 Door" />Replacement Sections
                                 </li>
                                 <li class="font-weight-sbold d-flex align-items-center">
-                                    <img class="me-2" src="images/list.svg" alt="" />Preventative
+                                    <img class="me-2" src="{{ asset('images/svg/list.svg') }}" alt="J1 Door" />Preventative
                                     Maintenance
                                 </li>
                                 <li class="font-weight-sbold d-flex align-items-center">
-                                    <img class="me-2" src="images/list.svg" alt="" />Keypad and Remote
+                                    <img class="me-2" src="{{ asset('images/svg/list.svg') }}" alt="J1 Door" />Keypad and Remote
                                     Programming
                                 </li>
                             </ul>
@@ -94,29 +94,29 @@
                             </p>
                             <ul class="p-0 m-0 mb-5 h-auto">
                                 <li class="font-weight-sbold d-flex align-items-center">
-                                    <img class="me-2" src="images/list.svg" alt="" />Spring Repair
+                                    <img class="me-2" src="{{ asset('images/svg/list.svg') }}" alt="J1 Door" />Spring Repair
                                 </li>
                                 <li class="font-weight-sbold d-flex align-items-center">
-                                    <img class="me-2" src="images/list.svg" alt="" />Opener Repair
+                                    <img class="me-2" src="{{ asset('images/svg/list.svg') }}" alt="J1 Door" />Opener Repair
                                 </li>
                                 <li class="font-weight-sbold d-flex align-items-center">
-                                    <img class="me-2" src="images/list.svg" alt="" />Cable Repair
+                                    <img class="me-2" src="{{ asset('images/svg/list.svg') }}" alt="J1 Door" />Cable Repair
                                 </li>
                                 <li class="font-weight-sbold d-flex align-items-center">
-                                    <img class="me-2" src="images/list.svg" alt="" />Roller Replacement
+                                    <img class="me-2" src="{{ asset('images/svg/list.svg') }}" alt="J1 Door" />Roller Replacement
                                 </li>
                                 <li class="font-weight-sbold d-flex align-items-center">
-                                    <img class="me-2" src="images/list.svg" alt="" />Track Repair
+                                    <img class="me-2" src="{{ asset('images/svg/list.svg') }}" alt="J1 Door" />Track Repair
                                 </li>
                                 <li class="font-weight-sbold d-flex align-items-center">
-                                    <img class="me-2" src="images/list.svg" alt="" />Replacement Sections
+                                    <img class="me-2" src="{{ asset('images/svg/list.svg') }}" alt="J1 Door" />Replacement Sections
                                 </li>
                                 <li class="font-weight-sbold d-flex align-items-center">
-                                    <img class="me-2" src="images/list.svg" alt="" />Preventative
+                                    <img class="me-2" src="{{ asset('images/svg/list.svg') }}" alt="J1 Door" />Preventative
                                     Maintenance
                                 </li>
                                 <li class="font-weight-sbold d-flex align-items-center">
-                                    <img class="me-2" src="images/list.svg" alt="" />Keypad and Remote
+                                    <img class="me-2" src="{{ asset('images/svg/list.svg') }}" alt="J1 Door" />Keypad and Remote
                                     Programming
                                 </li>
                             </ul>

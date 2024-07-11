@@ -110,7 +110,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <label for="password" class="form-label fw-bold">Password</label>
                                 <input 
                                     type="password" 
@@ -125,19 +125,6 @@
                                 <div class="invalid-feedback">
                                     Password is a required field.
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="password" class="form-label fw-bold">Password Confirmation</label>
-                                <input 
-                                    type="password" 
-                                    class="form-control" 
-                                    id="password2" 
-                                    name="password2"
-                                    aria-describedby="password" 
-                                    placeholder="Reenter password" 
-                                    required
-                                />
-
                             </div>
                         </div>
                         <div class="row mb-3">

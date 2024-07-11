@@ -6,29 +6,46 @@ use Illuminate\Http\Request;
 
 use App\Models\Product;
 use App\Models\ProductDocument;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Search a listing of the resource.
      */
-    public function indexResidentialProducts()
+    public function searchProducts($productType, Request $request)
     {
-        $pageTitle = "Residential";
-        $products = Product::residential()->active()->paginate(9);
-    
-        return view('guest.category', compact('pageTitle', 'products'));
-    }
+        $query = Product::query();
+        
+        if($productType == 'commerical') {
+            $query->commercial();
+        }
 
-    /**
-     * Display a listing of the resource.
-     */
-    public function indexCommercialProducts()
-    {
-        $pageTitle = "Commercial";
-        $products = Product::commercial()->active()->paginate(9);
-    
-        return view('guest.category', compact('pageTitle', 'products'));
+        if($productType == 'residential') {
+            $query->residential();
+        }
+
+        $cats = [];
+        if($request->has('cat')) {
+            $cat = $request->query('cat');
+            $tempArr = explode(',', $cat);
+            if(count($tempArr) > 0) {
+                foreach($tempArr as $temp) {
+                    if(isset($temp) && $temp != "") {
+                        $cats[] = $temp;
+                    }
+                }
+            }
+
+            $query->whereIn('category_id', $cats);
+        }
+
+        $products = $query->active()->paginate(9);
+
+        $commericalFilters = Category::whereIn('id', [5,6,7,8])->get();
+        $residentialFilters = Category::whereIn('id', [1,2,3,4])->get();
+
+        return view('guest.category', compact('products', 'commericalFilters', 'residentialFilters', 'cats'));
     }
 
     /**
@@ -46,7 +63,7 @@ class ProductController extends Controller
         return view('guest.product_details', compact('product', 'relatedProducts'));
     }
 
-        /**
+    /**
      * Download pdf file.
      */
     public function download($docId)

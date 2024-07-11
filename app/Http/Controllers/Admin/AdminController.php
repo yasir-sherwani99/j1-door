@@ -61,7 +61,7 @@ class AdminController extends Controller
                 // image extension
                 $extension = $image->getClientOriginalExtension();
                 // destination path
-                $destinationPath = public_path('images/upload/avatars');
+                $destinationPath = 'images/upload/avatars';
                 // create image new name        
                 $imageName = 'avatar_' . time() . '.' . $extension;
                 // create image instanc and save
@@ -124,7 +124,7 @@ class AdminController extends Controller
             $image = $request->file('photo');
             if($image instanceof UploadedFile) {
                 // delete previous image from folder
-                if (File::exists(public_path($admin->photo))) {
+                if (File::exists($admin->photo)) {
                     // delete image from storage
                     File::delete($admin->photo);
                 }
@@ -132,7 +132,7 @@ class AdminController extends Controller
                 // image extension
                 $extension = $image->getClientOriginalExtension();
                 // destination path
-                $destinationPath = public_path('images/upload/avatars');
+                $destinationPath = 'images/upload/avatars';
                 // create image new name        
                 $imageName = 'avatar_' . time() . '.' . $extension;
                 // create image instanc and save
@@ -163,7 +163,7 @@ class AdminController extends Controller
 
         // delete image from folder if exist
         if(isset($admin->photo)) {
-            if (File::exists(public_path($admin->photo))) {
+            if (File::exists($admin->photo)) {
                 // delete image from storage
                 File::delete($admin->photo);
             }

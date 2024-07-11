@@ -64,6 +64,9 @@ img {
 .font-12 {
     font-size: 12px;
 }
+.font-13 {
+    font-size: 13px;
+}
 .font-14 {
     font-size: 14px;
 }
@@ -97,7 +100,6 @@ img {
 .font-40 {
     font-size: 40px;
 }
-/* preloader css */
 .preloader-wrap {
     background: #fff none repeat scroll 0 0;
     height: 100%;
@@ -379,7 +381,7 @@ img {
     padding: 31.1px 0;
 }
 .company-product-sec {
-    padding: 100px 0;
+    padding: 50px 0;
 }
 .comapny-text-holder {
     margin-bottom: 32px;
@@ -773,6 +775,46 @@ img {
     padding: 60px;
 }
 
+/* map-sec */
+.map-sec {
+    padding: 50px 15px 50px 15px;
+}
+.map-sec-text-holder {
+    box-shadow: 0 4px 8px 0 #e2e1e1, 0 6px 20px 0 #e2e1e1;
+}
+.location-card__type {
+    background: #e2e1e1;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    width: auto;
+}
+.location-card__home {
+    background: #e2e1e1;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    width: auto;
+}
+.location-card__icon {
+    fill: #000;
+    height: 18px;
+}
+.map-text-holder {
+    padding: 25px;
+}
+.location-icon {
+    height: 42px;
+    margin-bottom: 3px;
+}
+.map-img img {
+    height: 770px;
+}
+.location-card__type h6 {
+    top: 3px;
+}
+.location-card__home h6 {
+    top: 3px;
+}
+
 /* responsive */
 
 @media (max-width: 1250px) {
@@ -852,6 +894,12 @@ img {
     }
     .faq {
         padding: 0;
+    }
+    .map-text-holder h3.font-20 {
+        font-size: 16px;
+    }
+    .map-text-holder p.font-20 {
+        font-size: 16px;
     }
 }
 @media (max-width: 991px) {

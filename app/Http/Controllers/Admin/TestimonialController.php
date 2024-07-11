@@ -61,7 +61,7 @@ class TestimonialController extends Controller
                 // image extension
                 $extension = $image->getClientOriginalExtension();
                 // destination path
-                $destinationPath = public_path('images/upload/testimonials');
+                $destinationPath = 'images/upload/testimonials';
                 // create image new name        
                 $imageName = 'testimonials_' . time() . '_' . $num . '.' . $extension;
                 // create image instanc and save
@@ -140,7 +140,7 @@ class TestimonialController extends Controller
         if(isset($request->images) && count($request->images) > 0) {
 
             // delete old image
-            if (File::exists(public_path($testimonial->picture))) {
+            if (File::exists($testimonial->picture)) {
                 // delete image from storage
                 File::delete($testimonial->picture);             
             }
@@ -150,7 +150,7 @@ class TestimonialController extends Controller
                 // image extension
                 $extension = $image->getClientOriginalExtension();
                 // destination path
-                $destinationPath = public_path('images/upload/testimonials');
+                $destinationPath = 'images/upload/testimonials';
                 // create image new name        
                 $imageName = 'testimonials_' . time() . '_' . $num . '.' . $extension;
                 // create image instanc and save
@@ -184,7 +184,7 @@ class TestimonialController extends Controller
         }
 
         if(isset($testimonial->picture)) {
-            if (File::exists(public_path($testimonial->picture))) {
+            if (File::exists($testimonial->picture)) {
                 // delete image from storage
                 File::delete($testimonial->picture);
             }

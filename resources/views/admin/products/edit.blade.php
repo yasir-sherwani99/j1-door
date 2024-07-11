@@ -366,7 +366,7 @@
                 'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
                 'table emoticons template paste help'
             ],
-            toolbar: 'bold italic | alignleft aligncenter alignright alignjustify | ' +
+            toolbar: 'bold italic | alignleft aligncenter alignright alignjustify | ' + ' | link image | ' +
                 'bullist numlist | ' + 'emoticons',
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
         });
